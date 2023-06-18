@@ -138,13 +138,9 @@ def pregunta_10():
     2   C                    0:5:6:7:9
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9 """
-    tabla= pd.DataFrame()
-    for c1, v in tbl0.groupby("_c1"):
-        # se hace linea por linea el dataframe
-        linea= ":".join(sorted(list(map(str, v["_c2"].to_list()))))
-        tabla = tabla.append({"_c0": c1, "_c1": linea}, ignore_index=True)
-        # se obtienen los elementos bajo la variable _c2, se convierten a tipo string, se organizan y después se entregan separados por :
-    return tabla
+
+    df10= tbl0.groupby("_c1")["_c2"].apply(lambda x: ":".join((str(y) for y in sorted(x))))
+    return df10
 
 def pregunta_11():
     """ Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de la columna _c4 del archivo `tbl1.tsv`.
@@ -159,13 +155,9 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tabla= pd.DataFrame()
-    for c0, v in tbl1.groupby("_c0"):
-        # se hace linea por linea el dataframe
-        linea= ",".join(sorted(list(map(str, v["_c4"].to_list()))))
-        tabla = tabla.append({"_c0": c0, "_c4": linea}, ignore_index=True)
-        # se obtienen los elementos bajo la variable _c2, se convierten a tipo string, se organizan y después se entregan separados por :
-    return tabla
+    df11= tbl1.groupby("_c0")["_c4"].apply(lambda x: ",".join((str(y) for y in sorted(x))))
+
+    return df11
 
 def pregunta_12():
     """
