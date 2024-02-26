@@ -2,3 +2,7 @@
 # Laboratorio
 
 Manipulación de datos usando Pandas.
+
+- Realizado por: Luis Felipe Moreno Chamorro
+- Materia: Fundamentos de Analitica
+- Universidad Nacional de Colombia sede Medellin
